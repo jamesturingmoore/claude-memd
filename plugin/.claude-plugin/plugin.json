@@ -6,14 +6,8 @@
     "name": "James Moore",
     "email": "jamesturingmoore@gmail.com"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jamesturingmoore/claude-memd.git"
-  },
+  "repository": "https://github.com/jamesturingmoore/claude-memd",
   "homepage": "https://github.com/jamesturingmoore/claude-memd#readme",
-  "bugs": {
-    "url": "https://github.com/jamesturingmoore/claude-memd/issues"
-  },
   "license": "MIT",
   "keywords": [
     "claude",
