@@ -7,7 +7,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "_R=\"${CLAUDE_PLUGIN_ROOT}\"; [ -z \"$_R\" ] && _R=\"$HOME/.claude/plugins/marketplaces/jamesturingmoore/plugin\"; node \"$_R/scripts/bun-runner.js\" \"$_R/scripts/http-server.cjs\"",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/bun-runner.js\" \"${CLAUDE_PLUGIN_ROOT}/scripts/http-server.cjs\"",
             "timeout": 60
           }
         ]

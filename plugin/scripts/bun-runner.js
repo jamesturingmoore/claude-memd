@@ -132,13 +132,16 @@ function collectStdin() {
 const stdinData = await collectStdin();
 
 // Spawn Bun with the provided script and args
+// Set CLAUDE_PLUGIN_ROOT env var for the child process
+const env = {
+  ...process.env,
+  CLAUDE_PLUGIN_ROOT: RESOLVED_PLUGIN_ROOT
+};
+
 const child = spawn(bunPath, args, {
   stdio: [stdinData ? 'pipe' : 'ignore', 'inherit', 'inherit'],
   windowsHide: true,
-  env: {
-    ...process.env,
-    CLAUDE_PLUGIN_ROOT: RESOLVED_PLUGIN_ROOT
-  }
+  env
 });
 
 // Write buffered stdin to child's pipe

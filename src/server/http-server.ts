@@ -400,16 +400,17 @@ export class HttpServer {
         const scriptDir = typeof __dirname !== 'undefined' ? __dirname : dirname(fileURLToPath(import.meta.url));
 
         // Try to find viewer HTML in multiple locations
-        // 1. Plugin directory (when running from installed plugin)
-        // 2. Development directory (when running from source)
+        // Priority: CLAUDE_PLUGIN_ROOT env > script relative > cwd relative
         const possiblePaths = [
-          // Installed plugin location (ui is sibling of scripts)
+          // 1. Use CLAUDE_PLUGIN_ROOT if set (most reliable for installed plugins)
+          process.env.CLAUDE_PLUGIN_ROOT ? join(process.env.CLAUDE_PLUGIN_ROOT, 'ui', 'index.html') : null,
+          // 2. Installed plugin location (ui is sibling of scripts)
           join(scriptDir, '..', 'ui', 'index.html'),
-          // Development location
+          // 3. Development location
           join(process.cwd(), 'viewer', 'index.html'),
-          // Alternative plugin location
+          // 4. Alternative plugin location
           join(process.cwd(), 'ui', 'index.html'),
-        ];
+        ].filter((p): p is string => p !== null);
 
         let html: string | null = null;
         for (const htmlPath of possiblePaths) {
