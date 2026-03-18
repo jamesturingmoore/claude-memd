@@ -1,9 +1,0 @@
-{
-  "mcpServers": {
-    "claude-memd": {
-      "command": "bun",
-      "args": ["run", "start"],
-      "env": {}
-    }
-  }
-}

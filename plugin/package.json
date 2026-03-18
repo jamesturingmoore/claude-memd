@@ -1,0 +1,11 @@
+{
+  "name": "claude-memd-plugin",
+  "version": "1.0.1",
+  "private": true,
+  "description": "Runtime files for claude-memd plugin",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0",
+    "bun": ">=1.0.0"
+  }
+}

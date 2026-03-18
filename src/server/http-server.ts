@@ -396,10 +396,33 @@ export class HttpServer {
     // ============ Viewer UI ============
     this.app.get('/', (req: Request, res: Response) => {
       try {
-        // In development, read from viewer directory
-        // In production, use embedded HTML
-        const htmlPath = join(process.cwd(), 'viewer', 'index.html');
-        const html = readFileSync(htmlPath, 'utf-8');
+        // Try to find viewer HTML in multiple locations
+        // 1. Plugin directory (when running from installed plugin)
+        // 2. Development directory (when running from source)
+        const possiblePaths = [
+          // Installed plugin location
+          join(dirname(fileURLToPath(import.meta.url)), '..', 'ui', 'index.html'),
+          // Development location
+          join(process.cwd(), 'viewer', 'index.html'),
+          // Alternative plugin location
+          join(process.cwd(), 'ui', 'index.html'),
+        ];
+
+        let html: string | null = null;
+        for (const htmlPath of possiblePaths) {
+          try {
+            html = readFileSync(htmlPath, 'utf-8');
+            logger.debug('HTTP', `Serving viewer from: ${htmlPath}`);
+            break;
+          } catch {
+            // Try next path
+          }
+        }
+
+        if (!html) {
+          throw new Error('Viewer HTML not found in any location');
+        }
+
         res.setHeader('Content-Type', 'text/html');
         res.send(html);
       } catch (error) {

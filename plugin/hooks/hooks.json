@@ -1,4 +1,5 @@
 {
+  "description": "Claude-memd HTTP server hooks",
   "hooks": {
     "SessionStart": [
       {
@@ -6,8 +7,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "_R=\"${CLAUDE_PLUGIN_ROOT}\"; [ -z \"$_R\" ] && _R=\"$(dirname \"$0\")/..\"; cd \"$_R/..\" && bun src/index.ts http &",
-            "timeout": 30
+            "command": "_R=\"${CLAUDE_PLUGIN_ROOT}\"; [ -z \"$_R\" ] && _R=\"$HOME/.claude/plugins/marketplaces/jamesturingmoore/plugin\"; node \"$_R/scripts/bun-runner.js\" \"$_R/scripts/http-server.cjs\"",
+            "timeout": 60
           }
         ]
       }
