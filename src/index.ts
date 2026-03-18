@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
  * claude-memd - Delete companion for claude-mem
  *
