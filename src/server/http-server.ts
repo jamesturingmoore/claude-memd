@@ -396,12 +396,15 @@ export class HttpServer {
     // ============ Viewer UI ============
     this.app.get('/', (req: Request, res: Response) => {
       try {
+        // Get script directory - use __dirname for CommonJS bundle, fallback to import.meta.url
+        const scriptDir = typeof __dirname !== 'undefined' ? __dirname : dirname(fileURLToPath(import.meta.url));
+
         // Try to find viewer HTML in multiple locations
         // 1. Plugin directory (when running from installed plugin)
         // 2. Development directory (when running from source)
         const possiblePaths = [
-          // Installed plugin location
-          join(dirname(fileURLToPath(import.meta.url)), '..', 'ui', 'index.html'),
+          // Installed plugin location (ui is sibling of scripts)
+          join(scriptDir, '..', 'ui', 'index.html'),
           // Development location
           join(process.cwd(), 'viewer', 'index.html'),
           // Alternative plugin location

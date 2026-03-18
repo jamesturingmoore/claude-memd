@@ -38595,9 +38595,10 @@ var HttpServer = class {
     });
     this.app.get("/", (req, res) => {
       try {
+        const scriptDir = typeof __dirname !== "undefined" ? __dirname : (0, import_path2.dirname)((0, import_url.fileURLToPath)(import_meta.url));
         const possiblePaths = [
-          // Installed plugin location
-          (0, import_path2.join)((0, import_path2.dirname)((0, import_url.fileURLToPath)(import_meta.url)), "..", "ui", "index.html"),
+          // Installed plugin location (ui is sibling of scripts)
+          (0, import_path2.join)(scriptDir, "..", "ui", "index.html"),
           // Development location
           (0, import_path2.join)(process.cwd(), "viewer", "index.html"),
           // Alternative plugin location
