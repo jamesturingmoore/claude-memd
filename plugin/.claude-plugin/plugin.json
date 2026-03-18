@@ -3,15 +3,25 @@
   "version": "1.0.1",
   "description": "Delete companion for claude-mem - view and delete memory records on port 37778",
   "author": {
-    "name": "James Moore"
+    "name": "James Moore",
+    "email": "jamesturingmoore@gmail.com"
   },
-  "repository": "https://github.com/jamesturingmoore/claude-memd",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jamesturingmoore/claude-memd.git"
+  },
+  "homepage": "https://github.com/jamesturingmoore/claude-memd#readme",
+  "bugs": {
+    "url": "https://github.com/jamesturingmoore/claude-memd/issues"
+  },
   "license": "MIT",
   "keywords": [
     "claude",
     "claude-code",
+    "claude-mem",
     "memory",
     "delete",
-    "claude-mem"
+    "mcp",
+    "plugin"
   ]
 }

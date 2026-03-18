@@ -1,0 +1,18 @@
+{
+  "name": "jamesturingmoore",
+  "owner": {
+    "name": "James Moore"
+  },
+  "metadata": {
+    "description": "Claude-memd - Delete companion for claude-mem",
+    "homepage": "https://github.com/jamesturingmoore/claude-memd"
+  },
+  "plugins": [
+    {
+      "name": "claude-memd",
+      "version": "1.0.1",
+      "source": "./plugin",
+      "description": "Delete companion for claude-mem - view and delete memory records on port 37778"
+    }
+  ]
+}
