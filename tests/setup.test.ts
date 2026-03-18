@@ -32,18 +32,18 @@ describe('Setup Tests', () => {
   });
 
   test('HTTP server health check', async () => {
-    const response = await fetch('http://localhost:27778/api/health');
+    const response = await fetch('http://localhost:37778/api/health');
     expect(response.ok).toBe(true);
 
     const data = await response.json();
     expect(data.status).toBe('ok');
-    expect(data.port).toBe(27778);
+    expect(data.port).toBe(37778);
 
     console.log('Health check:', data);
   });
 
   test('can get stats via API', async () => {
-    const response = await fetch('http://localhost:27778/api/stats');
+    const response = await fetch('http://localhost:37778/api/stats');
     expect(response.ok).toBe(true);
 
     const data = await response.json();
@@ -54,7 +54,7 @@ describe('Setup Tests', () => {
   });
 
   test('can get projects via API', async () => {
-    const response = await fetch('http://localhost:27778/api/projects');
+    const response = await fetch('http://localhost:37778/api/projects');
     expect(response.ok).toBe(true);
 
     const data = await response.json();

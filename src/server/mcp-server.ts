@@ -18,7 +18,7 @@ const SERVER_NAME = 'claude-memd';
 const SERVER_VERSION = '1.0.0';
 
 // Worker API URL (local)
-const WORKER_API_URL = `http://localhost:${process.env.CLAUDE_MEMD_PORT || 27778}`;
+const WORKER_API_URL = `http://localhost:${process.env.CLAUDE_MEMD_PORT || 37778}`;
 
 /**
  * Call Worker HTTP API

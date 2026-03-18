@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "_R=\"${CLAUDE_PLUGIN_ROOT}\"; [ -z \"$_R\" ] && _R=\"$(dirname \"$0\")/..\"; cd \"$_R/..\" && bun src/index.ts http &",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}

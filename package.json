@@ -1,7 +1,7 @@
 {
   "name": "claude-memd",
   "version": "1.0.0",
-  "description": "Delete companion for claude-mem - provides view and delete functionality on port 27778",
+  "description": "Delete companion for claude-mem - provides view and delete functionality on port 37778",
   "type": "module",
   "main": "dist/index.js",
   "bin": {

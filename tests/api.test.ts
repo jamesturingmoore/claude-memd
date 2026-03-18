@@ -4,7 +4,7 @@
 
 import { describe, test, expect, beforeAll, afterAll } from 'bun:test';
 
-const API_BASE = 'http://localhost:27778';
+const API_BASE = 'http://localhost:37778';
 
 describe('API Tests', () => {
   describe('Health & Stats', () => {
@@ -14,7 +14,7 @@ describe('API Tests', () => {
 
       const data = await response.json();
       expect(data.status).toBe('ok');
-      expect(data.port).toBe(27778);
+      expect(data.port).toBe(37778);
     });
 
     test('GET /api/stats', async () => {

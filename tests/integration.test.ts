@@ -5,7 +5,7 @@
 
 import { describe, test, expect, beforeAll, afterAll } from 'bun:test';
 
-const API_BASE = 'http://localhost:27778';
+const API_BASE = 'http://localhost:37778';
 const TEST_PROJECT = `__test_claude_memd_${Date.now()}`;
 
 describe('Integration Tests', () => {

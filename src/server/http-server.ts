@@ -1,6 +1,6 @@
 /**
  * HTTP Server for claude-memd
- * Runs on port 27778 to avoid conflict with claude-mem (37777)
+ * Runs on port 37778 (adjacent to claude-mem's 37777 for easy memory)
  */
 
 import express, { Express, Request, Response } from 'express';
@@ -11,7 +11,7 @@ import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 
-const DEFAULT_PORT = 27778;
+const DEFAULT_PORT = 37778;
 const HOST = 'localhost';
 
 // SSE clients for real-time updates

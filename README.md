@@ -1,13 +1,14 @@
 # claude-memd
 
-A lightweight companion plugin for [claude-mem](https://github.com/thedotmack/claude-mem) that provides **view and delete functionality** on port **27778**.
+A lightweight companion plugin for [claude-mem](https://github.com/thedotmack/claude-mem) that provides **view and delete functionality** on port **37778** (adjacent to claude-mem's 37777).
 
 ## Features
 
 - **View Memory Records**: Browse observations, summaries, and prompts
 - **Delete Functionality**: Delete individual records, batch delete, or delete entire projects
-- **Web UI**: Built-in viewer interface at http://localhost:27778
+- **Web UI**: Built-in viewer interface at http://localhost:37778
 - **MCP Tools**: Delete tools for Claude Code integration
+- **Auto-start**: Worker automatically starts via Claude Code hooks
 - **Non-invasive**: Independent installation, doesn't modify claude-mem
 
 ## Requirements
@@ -26,17 +27,17 @@ cd claude-memd
 bun install
 
 # Start HTTP server (for web viewer)
-bun start http
+bun src/index.ts http
 
 # Or start MCP server (for Claude Code integration)
-bun start mcp
+bun src/index.ts mcp
 ```
 
 ## Usage
 
 ### Web Viewer
 
-Start the HTTP server and open http://localhost:27778 in your browser:
+Start the HTTP server and open http://localhost:37778 in your browser:
 
 ```bash
 bun src/index.ts http
@@ -103,13 +104,15 @@ bun test tests/integration.test.ts
 ## Architecture
 
 ```
-claude-memd (Port 27778)
+claude-memd (Port 37778)
 ├── HTTP Server (Express)
 │   ├── REST API endpoints
 │   ├── Viewer UI
 │   └── SSE for real-time updates
 ├── MCP Server (stdio)
 │   └── Delete tools only
+├── Plugin Hooks
+│   └── Auto-start on SessionStart
 └── Database Layer
     └── Shared SQLite (~/.claude-mem/claude-mem.db)
 ```
